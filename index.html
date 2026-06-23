@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ミコトからの手紙</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shrine-bar" aria-hidden="true"></div>
+    <main class="shell">
+      <section class="hero shrine-hero">
+        <div class="emblem-circle" aria-hidden="true">御</div>
+        <p class="eyebrow">夜見神社 御言葉の社</p>
+        <h1 class="app-title">ミコトからの手紙</h1>
+        <p class="lead lead-text">
+          心のうちをそのままに。ミコトが言の葉をお預かりいたします。
+        </p>
+      </section>
+
+      <section class="panel shrine-panel" id="form-panel">
+        <form id="diagnosis-form">
+          <label>
+            お名前
+            <input name="nickname" maxlength="18" placeholder="例：ミライ" required />
+          </label>
+
+          <div class="grid single">
+            <label>
+              生まれた日
+              <div class="date-row">
+                <input name="birthYear" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="1990" required />
+                <input name="birthMonth" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="4" required />
+                <input name="birthDay" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="12" required />
+              </div>
+            </label>
+          </div>
+
+          <div class="grid">
+            <label>
+              問いの向き
+              <select name="theme" required>
+                <option value="">選んでください</option>
+                <option value="love">恋愛の縁</option>
+                <option value="marriage">家族・暮らしの縁</option>
+                <option value="self">自分の内側</option>
+                <option value="loss">失った人への想い</option>
+                <option value="work">仕事の場</option>
+                <option value="money">お金の巡り</option>
+                <option value="relation">人との間合い</option>
+                <option value="future">これからの道</option>
+              </select>
+            </label>
+            <label>
+              いま触れている縁
+              <select name="concern" required>
+                <option value="">先に問いの向きを選んでください</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="paper-area">
+            納めたい問い
+            <textarea name="worry" rows="4" maxlength="140" placeholder="たとえば「仕事のことが頭から離れない」「この先どうすれば…」"></textarea>
+            <span class="hint">いま言葉にできる範囲で大丈夫です。今日の御書に、短く写します。</span>
+          </label>
+
+          <div class="entry-paid-note">
+            <div>
+              <span>無料</span>
+              <strong>まず今日の御書を開きます</strong>
+            </div>
+            <div>
+              <span>有料</span>
+              <strong>続きの六つの書</strong>
+            </div>
+            <p>結果の下で、一の書を少しだけ見せます。封じを解く時だけ、奉納料をお預かりします。</p>
+          </div>
+
+          <button type="submit" class="submit-btn">御 書 を 納 め る</button>
+          <p class="submit-note">無料・登録不要・匿名でご利用いただけます</p>
+        </form>
+      </section>
+
+      <section class="loading hidden" id="loading-panel" aria-live="polite">
+        <div class="flash" aria-hidden="true"></div>
+        <div class="mikoto-scene">
+          <div class="mikoto-chibi" aria-hidden="true">
+            <span class="chibi-hair"></span>
+            <span class="chibi-face"></span>
+            <span class="chibi-bang left"></span>
+            <span class="chibi-bang right"></span>
+            <span class="miko-headpiece"></span>
+            <span class="miko-cord"></span>
+            <span class="chibi-body"></span>
+            <span class="crystal"></span>
+          </div>
+          <div class="speech">
+            <span>夜見ミコト</span>
+            <p>問いをお預かりします。少しだけ、流れを見せてください。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="result result-bg hidden" id="result-panel" aria-live="polite">
+        <div class="result-arrival">
+          <p class="result-from">夜見ミコトより</p>
+          <h2 class="result-title">一通の御文が届きました</h2>
+          <span class="letter-seal" aria-hidden="true">御</span>
+        </div>
+        <div class="result-card letter-card" id="share-card">
+          <p class="letter-date">本日、あなたの問いへ</p>
+          <p class="letter-salutation">── あなたへ ──</p>
+          <p class="eyebrow">今日の御書</p>
+          <h2 id="result-type"></h2>
+          <p class="focus" id="result-focus"></p>
+          <div class="insight">
+            <span>ミコトの言の葉</span>
+            <p id="deep-insight"></p>
+          </div>
+          <div class="letter">
+            <span>御書</span>
+            <p id="mikoto-letter"></p>
+          </div>
+          <div class="diagnosis-grid">
+            <div>
+              <span>今見えにくいもの</span>
+              <p id="blind-spot"></p>
+            </div>
+            <div>
+              <span>このまま抱えた時</span>
+              <p id="no-action"></p>
+            </div>
+          </div>
+          <p class="summary" id="result-summary"></p>
+          <div class="readings">
+            <div>
+              <span>本日の流れ</span>
+              <strong id="flow-score"></strong>
+            </div>
+            <div>
+              <span>灯り</span>
+              <strong id="key-word"></strong>
+            </div>
+          </div>
+          <p class="advice" id="result-advice"></p>
+          <div class="single-step">
+            <span>今日のつとめ</span>
+            <p id="next-step"></p>
+          </div>
+          <div class="after-action">
+            <span>つとめの後</span>
+            <p id="after-action"></p>
+          </div>
+          <p class="signature">夜見ミコト / 問いを預かる巫女</p>
+        </div>
+        <p class="result-footer">この御文は、あなただけに紡がれた言の葉です。</p>
+
+        <aside class="offer paid-teaser sealed-books">
+          <div class="teaser-head">
+            <div>
+              <p>封じられた六つの書</p>
+              <strong>今日の御書では、ここまで。続きは六つの書に封じています。</strong>
+            </div>
+            <span>奉納料</span>
+          </div>
+          <div class="scroll-preview">
+            <div class="sample-day open-scroll">
+              <span>一の書: 本音のかたち</span>
+              <strong id="sample-day"></strong>
+            </div>
+            <div class="locked-line sealed-scroll">
+              <span>二の書: 縁のながれ</span>
+              <p id="locked-preview"></p>
+            </div>
+            <div class="locked-line sealed-scroll">
+              <span>三の書: 今宵のつとめ</span>
+              <p>今夜、無理に動かさなくてよいものを一つだけ記します。</p>
+            </div>
+            <div class="locked-line sealed-scroll">
+              <span>四の書: 手放すもの</span>
+              <p>抱えたままだと重くなる思いを、ひとつだけほどきます。</p>
+            </div>
+            <div class="locked-line sealed-scroll">
+              <span>五の書: 道の分かれ</span>
+              <p id="locked-question"></p>
+            </div>
+            <div class="locked-line sealed-scroll">
+              <span>六の書: ミコトの結び</span>
+              <p>最後に、明日へ持っていく小さな言の葉を結びます。</p>
+            </div>
+          </div>
+          <div class="teaser-actions">
+            <button type="button" class="premium-trigger">封 じ を 解 く</button>
+            <a href="#premium-panel">内容をもう少し見る</a>
+          </div>
+          <p class="price-note">奉納料は、封じを解く時だけお預かりします。</p>
+        </aside>
+
+        <div class="actions">
+          <button id="save-image" type="button">結果画像を保存</button>
+          <button id="retry" type="button" class="secondary">もう一度</button>
+        </div>
+
+        <section class="premium sealed-books" id="premium-panel">
+          <p class="eyebrow">封じられた六つの書</p>
+          <h2>今日の御書の、その先へ</h2>
+          <div class="premium-hero">
+            <div class="offering-panel">
+              <span>奉納料</span>
+              <strong>封じを解くために</strong>
+              <small>お気持ちとして980円をお預かりします。会員登録は不要です。</small>
+            </div>
+            <p>
+              今すぐでなくとも、書はここにあります。生まれ星と暦、縁の流れを重ね、六つの書に分けて記します。
+            </p>
+          </div>
+          <div class="premium-compare">
+            <div>
+              <span>今日の御書</span>
+              <strong>今夜の灯り</strong>
+              <p>問いの入口、ミコトの言の葉、今日のつとめ。</p>
+            </div>
+            <div>
+              <span>六つの書</span>
+              <strong>奥にある流れ</strong>
+              <p>生まれ星、暦、縁の流れを重ね、次に選ぶ道を読む。</p>
+            </div>
+          </div>
+          <ul class="unlock-list">
+            <li><span>一の書</span> 本音のかたち</li>
+            <li><span>二の書</span> 縁のながれ</li>
+            <li><span>三の書</span> 今宵のつとめ</li>
+            <li><span>四の書</span> 手放すもの</li>
+            <li><span>五の書</span> 道の分かれ</li>
+            <li><span>六の書</span> ミコトの結び</li>
+          </ul>
+          <p>
+            今日の御書より少し深く、問いの奥にある流れを六つに分けて記します。
+          </p>
+          <form class="premium-form">
+            <div class="grid">
+              <label>
+                生まれた日
+                <input name="premiumBirthday" type="date" />
+              </label>
+              <label>
+                生まれた時間
+                <select name="birthTime">
+                  <option value="unknown">不明</option>
+                  <option value="morning">朝ごろ</option>
+                  <option value="noon">昼ごろ</option>
+                  <option value="evening">夕方ごろ</option>
+                  <option value="night">夜ごろ</option>
+                  <option value="exact">正確に入力する</option>
+                </select>
+              </label>
+            </div>
+            <label class="exact-time hidden" id="exact-time-field">
+              正確な時間
+              <input name="exactBirthTime" type="time" />
+            </label>
+            <label>
+              生まれた場所
+              <input name="birthPlace" placeholder="例：東京都 / 大阪府 / 不明でもOK" />
+              <span class="hint">不明でも大丈夫です。わかる範囲だけ、書に重ねます。</span>
+            </label>
+          </form>
+          <div class="astro-note">
+            <span>六つの書で開くもの</span>
+            <p id="astro-copy">今日の御書では触れきれなかった本音、縁の流れ、手放すもの、次の小さな道を記します。</p>
+          </div>
+          <p class="care-note">
+            占いは結論を代わりに決めるものではありません。危険、暴力、法律、医療、お金の深刻な問題がある場合は、信頼できる人や専門窓口にも相談してください。
+          </p>
+          <button type="button" id="premium-checkout" class="premium-trigger">封 じ を 解 く</button>
+          <div class="price-row">
+            <span>奉納料 980円</span>
+            <small id="checkout-status">封じを解く入口へ進みます。決済後、この御書へ戻れます。</small>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <canvas id="card-canvas" width="1080" height="1350" hidden></canvas>
+    <script src="./config.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

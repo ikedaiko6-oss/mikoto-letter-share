@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="150" viewBox="0 0 180 150">
+  <defs>
+    <filter id="stamp-rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="9" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.7"/>
+    </filter>
+    <filter id="ink-rough" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="14" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale=".8"/>
+    </filter>
+  </defs>
+
+  <g opacity=".9">
+    <text x="17" y="43" font-family="serif" font-size="28" font-weight="700" fill="#231a16" filter="url(#ink-rough)">奉</text>
+    <text x="17" y="87" font-family="serif" font-size="28" font-weight="700" fill="#231a16" filter="url(#ink-rough)">拝</text>
+    <text x="18" y="130" font-family="serif" font-size="17" font-weight="700" fill="#231a16" filter="url(#ink-rough)">令和</text>
+  </g>
+
+  <g opacity=".42" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M83 15c10-9 22 0 17 12-12 3-19-1-17-12Z" fill="#e7a4b5" stroke="#9d6b42" stroke-width="1"/>
+    <path d="M101 17c12-8 23 3 16 13-11 1-18-4-16-13Z" fill="#f0c1cd" stroke="#9d6b42" stroke-width="1"/>
+    <path d="M96 26c6-12 22-9 23 3-8 8-17 8-23-3Z" fill="#e7a4b5" stroke="#9d6b42" stroke-width="1"/>
+    <circle cx="101" cy="24" r="3" fill="#b89a3e"/>
+    <path d="M56 131c24-17 52 7 78-10" fill="none" stroke="#7f5d35" stroke-width="1.3"/>
+    <path d="M69 124c8-12 22-4 18 7-9 3-16 1-18-7Z" fill="#e7a4b5" stroke="#9d6b42" stroke-width="1"/>
+    <path d="M91 128c7-11 20-4 17 7-8 4-15 1-17-7Z" fill="#f0c1cd" stroke="#9d6b42" stroke-width="1"/>
+    <path d="M115 120c7-11 20-4 17 7-8 4-15 1-17-7Z" fill="#d8edf0" stroke="#9d6b42" stroke-width="1"/>
+  </g>
+</svg>
