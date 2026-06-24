@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>奉納をお預かりしました | ミコトからの手紙</title>
+    <title>奉納をお預かりしました | 夜見の響き</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="shrine-bar" aria-hidden="true"></div>
     <main class="shell">
       <section class="hero shrine-hero">
-        <div class="emblem-circle" aria-hidden="true">御</div>
+        <div class="emblem-circle" aria-hidden="true">占</div>
         <p class="eyebrow">夜見神社 御言葉の社</p>
         <h1 class="app-title">奉納をお預かりしました</h1>
         <p class="lead lead-text">
@@ -22,21 +22,21 @@
         <p class="eyebrow">封じられた六つの書</p>
         <h2>この先の御書へ</h2>
         <p>
-          お預かりした問いをもとに、本音のかたち、縁のながれ、今宵のつとめ、手放すもの、道の分かれ、ミコトの結びを記します。
+          お預かりした問いをもとに、本音のかたち、縁のながれ、今宵のしるし、手放すもの、道の分かれ、ミコトの結びを開きます。
         </p>
-        <ul class="unlock-list">
-          <li><span>一の書</span> 本音のかたち</li>
-          <li><span>二の書</span> 縁のながれ</li>
-          <li><span>三の書</span> 今宵のつとめ</li>
-          <li><span>四の書</span> 手放すもの</li>
-          <li><span>五の書</span> 道の分かれ</li>
-          <li><span>六の書</span> ミコトの結び</li>
-        </ul>
+        <div class="unlocked-books" id="premium-unlocked"></div>
+        <p class="care-note hidden" id="premium-empty">
+          先に今日の御書を開いてください。問いをお預かりしてから、六つの書を記します。
+        </p>
         <p class="care-note">
-          いまは決済後ページの仮置きです。次の実装で、ここに個別の六つの書を表示します。
+          占いは結論を代わりに決めるものではありません。危険、暴力、法律、医療、お金の深刻な問題がある場合は、信頼できる人や専門窓口にも相談してください。
         </p>
         <a class="return-link" href="./index.html">今日の御書へ戻る</a>
       </section>
     </main>
+    <script src="./js/config.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/engine.js"></script>
+    <script src="./js/premium-result.js"></script>
   </body>
 </html>

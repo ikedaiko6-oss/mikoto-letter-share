@@ -3,19 +3,37 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ミコトからの手紙</title>
+    <title>夜見の響き</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+    <!-- 筆文字フィルター -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+      <defs>
+        <filter id="fude">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" seed="8" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </defs>
+    </svg>
   </head>
   <body>
     <div class="shrine-bar" aria-hidden="true"></div>
     <main class="shell">
       <section class="hero shrine-hero">
-        <div class="emblem-circle" aria-hidden="true">御</div>
+        <span class="shrine-ghost" aria-hidden="true">占</span>
         <p class="eyebrow">夜見神社 御言葉の社</p>
-        <h1 class="app-title">ミコトからの手紙</h1>
-        <p class="lead lead-text">
-          心のうちをそのままに。ミコトが言の葉をお預かりいたします。
+        <h1 class="app-title">夜見の響き</h1>
+        <p class="hero-hook">
+          声に出せなかった問いが、<br>
+          言葉になって返ってきます。
         </p>
+        <p class="lead lead-text">
+          ひとりで抱えている問いを、夜見に届けてください。<br>
+          言葉にしにくいことでも、かまいません。
+        </p>
+        <p class="hero-note">名前と生まれた日と、今の問いだけ。</p>
       </section>
 
       <section class="panel shrine-panel" id="form-panel">
@@ -65,18 +83,6 @@
             <span class="hint">いま言葉にできる範囲で大丈夫です。今日の御書に、短く写します。</span>
           </label>
 
-          <div class="entry-paid-note">
-            <div>
-              <span>無料</span>
-              <strong>まず今日の御書を開きます</strong>
-            </div>
-            <div>
-              <span>有料</span>
-              <strong>続きの六つの書</strong>
-            </div>
-            <p>結果の下で、一の書を少しだけ見せます。封じを解く時だけ、奉納料をお預かりします。</p>
-          </div>
-
           <button type="submit" class="submit-btn">御 書 を 納 め る</button>
           <p class="submit-note">無料・登録不要・匿名でご利用いただけます</p>
         </form>
@@ -97,7 +103,7 @@
           </div>
           <div class="speech">
             <span>夜見ミコト</span>
-            <p>問いをお預かりします。少しだけ、流れを見せてください。</p>
+            <p>問いが届きました。夜見の奥へ、声を届けてまいります。</p>
           </div>
         </div>
       </section>
@@ -115,7 +121,7 @@
           <h2 id="result-type"></h2>
           <p class="focus" id="result-focus"></p>
           <div class="insight">
-            <span>ミコトの言の葉</span>
+            <span>夜見より届いた言の葉</span>
             <p id="deep-insight"></p>
           </div>
           <div class="letter">
@@ -124,11 +130,11 @@
           </div>
           <div class="diagnosis-grid">
             <div>
-              <span>今見えにくいもの</span>
+              <span>いま影に隠れているもの</span>
               <p id="blind-spot"></p>
             </div>
             <div>
-              <span>このまま抱えた時</span>
+              <span>抱え続けた先</span>
               <p id="no-action"></p>
             </div>
           </div>
@@ -145,18 +151,18 @@
           </div>
           <p class="advice" id="result-advice"></p>
           <div class="single-step">
-            <span>今日のつとめ</span>
+            <span>今日の小さな所作</span>
             <p id="next-step"></p>
           </div>
           <div class="after-action">
-            <span>つとめの後</span>
+            <span>所作のあとに残るもの</span>
             <p id="after-action"></p>
           </div>
-          <p class="signature">夜見ミコト / 問いを預かる巫女</p>
+          <p class="signature">夜見ミコト / 夜見の社に仕える巫女</p>
         </div>
-        <p class="result-footer">この御文は、あなただけに紡がれた言の葉です。</p>
+        <p class="result-footer">この言の葉は、夜見よりあなた一人へ届けられたものです。</p>
 
-        <aside class="offer paid-teaser sealed-books">
+        <aside class="offer paid-teaser sealed-books hidden">
           <div class="teaser-head">
             <div>
               <p>封じられた六つの書</p>
@@ -174,7 +180,7 @@
               <p id="locked-preview"></p>
             </div>
             <div class="locked-line sealed-scroll">
-              <span>三の書: 今宵のつとめ</span>
+              <span>三の書: 今宵のしるし</span>
               <p>今夜、無理に動かさなくてよいものを一つだけ記します。</p>
             </div>
             <div class="locked-line sealed-scroll">
@@ -194,7 +200,7 @@
             <button type="button" class="premium-trigger">封 じ を 解 く</button>
             <a href="#premium-panel">内容をもう少し見る</a>
           </div>
-          <p class="price-note">奉納料は、封じを解く時だけお預かりします。</p>
+          <p class="price-note">封じを解く際に、奉納料として980円をお預かりします。</p>
         </aside>
 
         <div class="actions">
@@ -202,7 +208,7 @@
           <button id="retry" type="button" class="secondary">もう一度</button>
         </div>
 
-        <section class="premium sealed-books" id="premium-panel">
+        <section class="premium sealed-books hidden" id="premium-panel">
           <p class="eyebrow">封じられた六つの書</p>
           <h2>今日の御書の、その先へ</h2>
           <div class="premium-hero">
@@ -219,7 +225,7 @@
             <div>
               <span>今日の御書</span>
               <strong>今夜の灯り</strong>
-              <p>問いの入口、ミコトの言の葉、今日のつとめ。</p>
+              <p>問いの入口、ミコトの言の葉、今日の小さな所作。</p>
             </div>
             <div>
               <span>六つの書</span>
@@ -227,14 +233,38 @@
               <p>生まれ星、暦、縁の流れを重ね、次に選ぶ道を読む。</p>
             </div>
           </div>
-          <ul class="unlock-list">
-            <li><span>一の書</span> 本音のかたち</li>
-            <li><span>二の書</span> 縁のながれ</li>
-            <li><span>三の書</span> 今宵のつとめ</li>
-            <li><span>四の書</span> 手放すもの</li>
-            <li><span>五の書</span> 道の分かれ</li>
-            <li><span>六の書</span> ミコトの結び</li>
-          </ul>
+          <div class="book-grid">
+            <div class="book-card">
+              <div class="book-badge">一</div>
+              <p class="book-label">一の書</p>
+              <p class="book-title">本音のかたち</p>
+            </div>
+            <div class="book-card">
+              <div class="book-badge">二</div>
+              <p class="book-label">二の書</p>
+              <p class="book-title">縁のながれ</p>
+            </div>
+            <div class="book-card">
+              <div class="book-badge">三</div>
+              <p class="book-label">三の書</p>
+              <p class="book-title">今宵のしるし</p>
+            </div>
+            <div class="book-card">
+              <div class="book-badge">四</div>
+              <p class="book-label">四の書</p>
+              <p class="book-title">手放すもの</p>
+            </div>
+            <div class="book-card">
+              <div class="book-badge">五</div>
+              <p class="book-label">五の書</p>
+              <p class="book-title">道の分かれ</p>
+            </div>
+            <div class="book-card">
+              <div class="book-badge">六</div>
+              <p class="book-label">六の書</p>
+              <p class="book-title">ミコトの結び</p>
+            </div>
+          </div>
           <p>
             今日の御書より少し深く、問いの奥にある流れを六つに分けて記します。
           </p>
@@ -283,7 +313,11 @@
     </main>
 
     <canvas id="card-canvas" width="1080" height="1350" hidden></canvas>
-    <script src="./config.js"></script>
-    <script src="./app.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/engine.js"></script>
+    <script src="./js/render.js"></script>
+    <script src="./js/payment.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>
