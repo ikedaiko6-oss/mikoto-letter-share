@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mikoto-letter-share.vercel.app/sitemap.xml
